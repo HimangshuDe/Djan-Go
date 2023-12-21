@@ -58,6 +58,7 @@ TEMPLATES = [
         'DIRS': [
             # BASE_DIR/"challenges"/"templates" 
             # Add dirs into this only when you don't want to add your app to INSTALLED_APPS!
+            BASE_DIR / "templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {

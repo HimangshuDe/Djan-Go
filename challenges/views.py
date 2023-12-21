@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -17,21 +16,15 @@ monthly_challenges = {
     "october":"Be veg this month!",
     "november":"Learn Python!",
     "decemeber":"Go to walk!"
+    # "decemeber":None
 }
 
 
-def all_challenges(request):
-    all_months = list(monthly_challenges.keys())
-    months_links = []
-    for month in all_months:
-        redirect_link = f"""
-        <ul>
-            <li><h2><a style="text-decoration: none;" href=\"{reverse("month-challenge", args=[month])}\"> {month.capitalize()}</a></h2></li>
-        </ul>
-        """
-        months_links.append(redirect_link)
-    
-    return HttpResponse(content=months_links)
+def index(request):
+    months = list(monthly_challenges.keys())
+    return render(request, "challenges/index.html", {
+        "months":months
+    })
 
 
 
@@ -45,9 +38,16 @@ def monthly_challenges_by_number(request, month:int):
 
 
 def monthly_challenge(request, month:str):
-    # try:
+    try:
         challenge_text = monthly_challenges[month]
-        response_data = render_to_string("challenges/challenge.html")
-        return HttpResponse(response_data)
-    # except:
-        # return HttpResponseNotFound("This month is not found!")
+        return render(request, "challenges/challenge.html", {
+            "month_name":month,
+            "challenge_text":challenge_text
+        }) 
+        #NOTE: The above line does the exact thing, what the below two lines does!
+    
+        # response_data = render_to_string("challenges/challenge.html")
+        # return HttpResponse(response_data)
+
+    except:
+        return HttpResponseNotFound("This month is not found!")
