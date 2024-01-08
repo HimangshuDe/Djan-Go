@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+This Post Title
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/post.css" %}">
+<link rel="stylesheet" href="{% static "blog/post-detail.css" %}">
+<link rel="stylesheet" href="{% static "blog/all-posts.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+    <section id="summary">
+        <h2>Post Title</h2>
+        <article>
+            <img src="{% static "blog/images/mountains.jpg" %}" alt="Post Title">
+            <address>By Himangshu</address>
+            <div>
+                Last updated on <time>July 10th</time>
+            </div>
+        </article>
+    </section>
+
+    <main>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse maiores, officiis, quaerat labore autem quasi nostrum voluptatibus porro possimus veritatis ad accusamus blanditiis obcaecati reiciendis fugiat eaque pariatur illum consequuntur?
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse maiores, officiis, quaerat labore autem quasi nostrum voluptatibus porro possimus veritatis ad accusamus blanditiis obcaecati reiciendis fugiat eaque pariatur illum consequuntur?
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse maiores, officiis, quaerat labore autem quasi nostrum voluptatibus porro possimus veritatis ad accusamus blanditiis obcaecati reiciendis fugiat eaque pariatur illum consequuntur?
+        </p>
+    </main>
+{% endblock content %}
