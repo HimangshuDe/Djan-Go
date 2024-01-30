@@ -1,0 +1,31 @@
+{% extends "book_outlet/base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "book_outlet/book_detail.css" %}">
+{% endblock css_files %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+    {% include "book_outlet/includes/header.html" %}
+    <div class="container">
+
+        <div class="card-main">
+            
+            <h1>{{ title }}</h1>
+            <hr>
+            <h2>{{ author }}</h2>
+        </div>
+        
+        <p class="card-rating">The Book has a rating of {{ rating }}
+            {% if is_bestseller %}
+                and is a bestseller.
+            {% else %}
+                but isn't a bestseller.
+            {% endif %}
+        </p>
+    </div>
+{% endblock content %}

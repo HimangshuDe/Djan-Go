@@ -1,0 +1,54 @@
+html, body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #edf7f6;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+#heading{
+    background-color: #222e50;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+#heading a{
+    text-decoration: none;
+    color: white;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#book-element{
+    display: inline-block;
+    margin: 10px;
+    padding:10px;
+    background-color: #1c448e;
+    box-shadow: 3px 3px rgb(133, 131, 131);
+    border-radius: 10px;
+}
+
+#book-element li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+#book-element:hover{
+    background-image: linear-gradient(42deg, #e2725b 25%, #94b0da 49%, #495159 90%);
+    color: black;
+    cursor: pointer;
+    transition: all 1s ease;
+    transform: scale(1.1);
+}

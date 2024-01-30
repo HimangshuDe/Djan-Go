@@ -1,0 +1,25 @@
+{% extends "book_outlet/base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "book_outlet/index.css" %}">
+{% endblock css_files %}
+
+{% block title %}
+    All Books
+{% endblock title %}
+
+{% block content %}
+
+    {% include "book_outlet/includes/header.html" %}
+    
+    <div  class="container">
+        <ul>
+            {% for book in books %}
+            <a href="{% url "book-detail" book.id %}"><div id="book-element">
+                    <li>{{ book.title }}</li>
+                </div></a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}
