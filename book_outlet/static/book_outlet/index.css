@@ -46,7 +46,7 @@ a{
 }
 
 #book-element:hover{
-    background-image: linear-gradient(42deg, #e2725b 25%, #94b0da 49%, #495159 90%);
+    background-color: #e2725b;
     color: black;
     cursor: pointer;
     transition: all 1s ease;
