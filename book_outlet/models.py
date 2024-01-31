@@ -17,10 +17,6 @@ class Book(models.Model):
         This will not work properly if any field is not defined in the Book Model Class.
         """
         return reverse("book-detail", args=[str(self.slug)])
-    
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.title} ({self.rating})"
