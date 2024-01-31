@@ -1,6 +1,6 @@
 html, body{
     font-family: "Montserrat", sans-serif;
-    background-color: #edf7f6;
+    background-color: #232b2b;
 }
 
 *{
@@ -25,6 +25,13 @@ html, body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #book-element{
@@ -32,7 +39,7 @@ html, body{
     margin: 10px;
     padding:10px;
     background-color: #1c448e;
-    box-shadow: 3px 3px rgb(133, 131, 131);
+    box-shadow: 3px 3px 5px rgb(133, 131, 131);
     border-radius: 10px;
 }
 
@@ -51,4 +58,23 @@ a{
     cursor: pointer;
     transition: all 1s ease;
     transform: scale(1.1);
+}
+
+#meta-details{
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: center;
+    clear: both;
+}
+
+#para-1, #para-2{   
+    background-color: antiquewhite;
+    width: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+    box-shadow: 0 5px 10px gray;
 }

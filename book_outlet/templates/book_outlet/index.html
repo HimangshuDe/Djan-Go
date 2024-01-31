@@ -16,10 +16,15 @@
     <div  class="container">
         <ul>
             {% for book in books %}
-            <a href="{% url "book-detail" book.id %}"><div id="book-element">
+            <a href="{{ book.get_absolute_url }}"><div id="book-element">
                     <li>{{ book.title }}</li>
                 </div></a>
             {% endfor %}
         </ul>
+    </div>
+
+    <div id="meta-details">
+        <p id="para-1">Total no. of  Books: {{total_books}}</p>
+        <p id="para-2">Average Rating: {{avg_rating.rating__avg|floatformat:1}}</p>
     </div>
 {% endblock content %}
