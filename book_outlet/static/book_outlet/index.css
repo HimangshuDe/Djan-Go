@@ -1,6 +1,6 @@
 html, body{
     font-family: "Montserrat", sans-serif;
-    background-color: #232b2b;
+    background-color: antiquewhite;
 }
 
 *{
@@ -25,10 +25,7 @@ html, body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: antiquewhite;
     border-radius: 20px;
-    height: fit-content;
-    width: fit-content;
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 10px;
@@ -68,13 +65,14 @@ a{
     clear: both;
 }
 
-#para-1, #para-2{   
-    background-color: antiquewhite;
+#meta-details p {   
+    background-color: #1c448e;
+    color: white;
     width: fit-content;
     text-align: center;
     border-radius: 10px;
+    margin: 70vh auto 0 auto;
     padding: 5px;
     font-size: 14px;
-    margin-right: 10px;
     box-shadow: 0 5px 10px gray;
 }
