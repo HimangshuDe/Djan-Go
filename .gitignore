@@ -169,3 +169,6 @@ cython_debug/
 
 # temp folders
 temp/*
+
+# For file-uploads in django
+uploads/*
