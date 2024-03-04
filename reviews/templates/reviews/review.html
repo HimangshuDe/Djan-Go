@@ -1,17 +1,13 @@
-{% load static %}
+{% extends "reviews/base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "reviews/style.css" %}">
-    <title>Your Review</title>
-</head>
-<body>
-    <form action="/" method="post">
+{% block title %}
+ Your Review
+{% endblock title %}
+{% block content %}
+
+<form action="/" method="post">
         {% csrf_token %}
-
+        
         {% for field in form %}
         <div class="form-control {% if field.errors %}errors{% endif %}">
             {{ field.label_tag }}
@@ -19,8 +15,7 @@
             {{ field.errors }}
         </div>
         {% endfor %}
-
+        
         <button type="submit">Send</button>
     </form>
-</body>
-</html>
+{% endblock content %}
