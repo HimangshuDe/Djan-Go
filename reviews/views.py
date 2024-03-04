@@ -1,7 +1,6 @@
 from typing import Any
-from django.db.models.query import QuerySet
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView
 
