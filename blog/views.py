@@ -1,6 +1,12 @@
-from django.views.generic import ListView, DetailView
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.views.generic import ListView
+from django.views import View
+from django.shortcuts import render
 
-from .models import Post
+from blog.forms import CommentForm
+
+from .models import Comment, Post
 
 
 def get_date(post):
@@ -39,20 +45,42 @@ class AllPostsView(ListView):
 #     return render(request, "blog/all-posts.html", {"all_posts": posts})
 
 
-class SinglePostView(DetailView):
-    template_name = "blog/post-detail.html"
-    model = Post
+class SinglePostView(View):
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["post_tags"] = Post.objects.get(slug=self.kwargs["slug"]).tags.all()
-        return context
+    # GET request
+    def get(self, request, slug):
+        post = Post.objects.get(slug=slug)
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            "all_comment": post.comments.all().order_by("-id"),
+            "comment_form": CommentForm(),
+        }
+        return render(request, "blog/post-detail.html", context)
+
+    # POST request
+    def post(self, request, slug):
+        comment_form = CommentForm(request.POST)
+        post = Post.objects.get(slug=slug)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return HttpResponseRedirect(reverse("post-detail-page", args=[slug]))
+
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            "all_comment": post.comments.all().order_by("-id"),
+            "comment_form": comment_form,
+        }
+        return render(request, "blog/post-detail.html", context)
 
 
 # def post_detail(request, slug):
-#     identified_post = get_object_or_404(Post, slug=slug)
-#     return render(
-#         request,
-#         "blog/post-detail.html",
-#         {"post": identified_post, "post_tags": identified_post.tags.all()},
-#     )
+# identified_post = get_object_or_404(Post, slug=slug)
+# return render(
+#     request,
+#     "blog/post-detail.html",
+#     {"post": identified_post, "post_tags": identified_post.tags.all()},
+# )
