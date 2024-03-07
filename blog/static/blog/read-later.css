@@ -1,0 +1,39 @@
+#main-navigation {
+    background-color: #390281;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#read-later {
+    margin: 8rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    width: 90%;
+    max-width: 60rem;
+}
+
+#read-later h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 40px;
+}
+
+#read-later ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 1.5rem;
+}
+
+/* #read-later li {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-bottom: 1px solid #ccc;
+} */
+
+#read-later li:last-of-type {
+    border: none;
+}
