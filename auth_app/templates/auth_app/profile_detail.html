@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{user.email}} | Profile
+{% endblock title %}
+
+{% block content %}
+<h1>Welcome {{user.email}}!</h1>
+<p>Profile Page</p>
+<hr>
+<button><a href="{% url 'logout' %}">Logout</a></button>
+<button><a href="{% url 'home' %}">Home</a></button>
+{% endblock content %}
