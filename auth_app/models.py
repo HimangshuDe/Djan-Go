@@ -39,6 +39,7 @@ class CustomUserModel(AbstractUser):
     that field instead of username(which is set to None in this case).
     """
     USERNAME_FIELD = "email"
+
     """
     All fields other than the one set in USERNAME_FIELD need to be 
     set in REQUIRED_FIELDS.
