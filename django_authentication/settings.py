@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Since we are creating custom user model we also need to add it as
+# Default Authentication model
+AUTH_USER_MODEL = "auth_app.CustomUserModel"
+
 
 # Application definition
 
