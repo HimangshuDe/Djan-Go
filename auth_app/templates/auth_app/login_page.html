@@ -17,6 +17,7 @@
         <br>
         {% endfor %}
         <button>Login</button>
+        {%if error_messages%}<p>{{error_messages}}</p>{%endif%}
     </form>
     <hr>
     <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>

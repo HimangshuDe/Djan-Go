@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic.base import TemplateView
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from auth_app.forms import CustomUserCreationForm, LoginForm
 
@@ -13,11 +14,8 @@ class HomeView(TemplateView):
     template_name = "auth_app/home.html"
 
 
+@login_required
 def profile_detail_view(request):
-    if not request.user.is_authenticated:  # usual way of authenticating a user
-        return HttpResponseRedirect(reverse("login") + "?next=/profile/")
-
-    # if user is authenticated
     context = {
         "user": request.user,
     }
